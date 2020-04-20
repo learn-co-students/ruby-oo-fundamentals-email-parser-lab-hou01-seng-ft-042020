@@ -7,6 +7,7 @@ class EmailAddressParser
     @emails = emails
   end 
   def parse
+    # how to do without regex???
     emails.split(/[,\s]+/).uniq
   end  
   attr_accessor :emails
