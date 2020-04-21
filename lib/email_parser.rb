@@ -7,14 +7,19 @@ class EmailAddressParser
     @emails = emails
   end 
   def parse
+    # regex solution
+    # emails.split(/[,\s]+/).uniq
     # how to do without regex???
-    emails.split(/[,\s]+/).uniq
+    parsed_emails = @emails.split(',').map do |email| 
+      email.strip 
+    end.flatten.join(" ").split(" ")
+    parsed_emails.uniq
   end  
   attr_accessor :emails
 end 
 
-email_addresses = "john@doe.com, person@somewhere.org"
+email_addresses = "john@doe.com, person@somewhere.org colebuildanddevelop@gmail.com"
 parser = EmailAddressParser.new(email_addresses)
  
-puts parser.emails
+puts parser.parse
 # => ["john@doe.com", "person@somewhere.org"]
