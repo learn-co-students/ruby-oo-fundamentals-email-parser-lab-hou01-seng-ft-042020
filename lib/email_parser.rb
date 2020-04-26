@@ -11,15 +11,13 @@ class EmailAddressParser
     @emails = emails
   end
 
-  def parse
-    # delimiters = [' ', ',']
-    # emails.split(Regexp.union(delimiters)).uniq
-    emails.split(',').map do |email|
-      email.strip
-    end.join(' ').split(' ').uniq
-  end
-
   # def parse
-  #   emails.split(/, | /).uniq
+  #   emails.split(',').map do |email|
+  #     email.strip
+  #   end.join(' ').split(' ').uniq
   # end
+
+  def parse
+    emails.split(/, | /).uniq
+  end
 end
