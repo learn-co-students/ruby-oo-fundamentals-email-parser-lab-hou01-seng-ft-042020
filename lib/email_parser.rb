@@ -5,11 +5,11 @@
 require "pry"
 
 class EmailAddressParser
+  attr_reader :emails
+
   def initialize(emails)
     @emails = emails
   end
-
-  attr_reader :emails
 
   def parse
     # delimiters = [' ', ',']
@@ -18,5 +18,4 @@ class EmailAddressParser
       email.strip
     end.join(' ').split(' ').uniq
   end
-
 end
